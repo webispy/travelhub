@@ -1,0 +1,12 @@
+<h1><%= title %></h1>
+User: <%=user_id%>
+<form action="/create" method="post" accept-charset="utf-8">
+  <input type="text" name="title"/>
+  <input type="submit"/>
+</form>
+
+<hr/>
+
+<% books.forEach(function(book){ %>
+  <p><a href="/destroy/<%=book._id%>">[Remove]</a> <%= book.title %> - <%=book.user_id%> [<%=book.date%>]</p>
+<% }); %>
