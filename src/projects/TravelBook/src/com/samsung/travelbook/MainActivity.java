@@ -59,6 +59,9 @@ public class MainActivity extends FragmentActivity implements
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		mViewPager.setAdapter(mSectionsPagerAdapter);
 
+		actionBar.setDisplayShowTitleEnabled(false);
+		actionBar.setDisplayShowHomeEnabled(false);
+
 		// When swiping between different sections, select the corresponding
 		// tab. We can also use ActionBar.Tab#select() to do this if we have
 		// a reference to the Tab.

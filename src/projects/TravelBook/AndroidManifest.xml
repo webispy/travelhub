@@ -39,13 +39,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:theme="@android:style/Theme.NoTitleBar"
             android:name="com.samsung.travelbook.TravelScheduleAllocationActivity"
             android:label="@string/title_activity_travel_schedule_allocation" >
         </activity>
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyBRvyTNFIno1xVUSKyRUKwx4-ZiNSH8rl8" />
+            android:value="AIzaSyDTGRwuIh-fUHROer0hg96vWUv4nG1O0Mk" />
 
         <activity
             android:name="com.samsung.travelbook.MapTest"

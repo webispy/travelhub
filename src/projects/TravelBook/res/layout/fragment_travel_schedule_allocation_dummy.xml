@@ -16,7 +16,7 @@
     <com.mobeta.android.dslv.DragSortListView
         android:id="@+id/listview"
         android:layout_width="fill_parent"
-        android:layout_height="240dp"
+        android:layout_height="fill_parent"
         android:layout_margin="0dp"
         android:paddingTop="0dp"
         dslv:collapsed_height="2dp"
@@ -31,11 +31,5 @@
         dslv:sort_enabled="true"
         dslv:track_drag_sort="false"
         dslv:use_default_controller="true" />
-
-    <com.google.android.gms.maps.MapView  
-          android:id="@+id/mapview"
-          android:layout_width="match_parent"
-          android:layout_weight="1"
-          android:layout_height="0dp"/>
 
 </LinearLayout>

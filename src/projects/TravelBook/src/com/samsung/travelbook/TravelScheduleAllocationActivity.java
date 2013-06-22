@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -46,6 +47,10 @@ public class TravelScheduleAllocationActivity extends FragmentActivity {
 	 * The {@link ViewPager} that will host the section contents.
 	 */
 	ViewPager mViewPager;
+	
+	final LatLng HAMBURG = new LatLng(13.4770676, 144.7494423);
+	final LatLng KIEL = new LatLng(13.4770676, 144.7494423);
+	private GoogleMap map;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +65,34 @@ public class TravelScheduleAllocationActivity extends FragmentActivity {
 		// Set up the ViewPager with the sections adapter.
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		mViewPager.setAdapter(mSectionsPagerAdapter);
+		
 
+		MapView mapView = (MapView) findViewById(R.id.mapview);
+		mapView.onCreate(savedInstanceState);
+		mapView.onResume(); // without this, map showed but was empty
+
+		map = mapView.getMap();
+		map.getUiSettings().setMyLocationButtonEnabled(false);
+		map.setMyLocationEnabled(true);
+
+		try {
+			MapsInitializer.initialize(this);
+		} catch (GooglePlayServicesNotAvailableException e) {
+			e.printStackTrace();
+		}
+
+		// Gets to GoogleMap from the MapView and does initialization
+		CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(
+				new LatLng(13.4770676, 144.7494423), 12);
+		//map.animateCamera(cameraUpdate);
+		map.moveCamera(cameraUpdate);
+		
+		LatLng MELBOURNE = new LatLng(13.4770676, 144.7494423);
+		Marker melbourne = map.addMarker(new MarkerOptions()
+		                          .position(MELBOURNE)
+		                          .title("CAPRICCIOA Restaurant")
+		                          .snippet("바닷가재가 제일 맛있는 집"));
+		melbourne.showInfoWindow();
 	}
 
 	@Override
@@ -127,10 +159,6 @@ public class TravelScheduleAllocationActivity extends FragmentActivity {
 		public DummySectionFragment() {
 		}
 
-		final LatLng HAMBURG = new LatLng(13.4770676, 144.7494423);
-		final LatLng KIEL = new LatLng(13.4770676, 144.7494423);
-		private GoogleMap map;
-
 		DragSortListView listView;
 		ArrayAdapter<TravelBookHubItemData> adapter;
 		ArrayList<TravelBookHubItemData> travelBookActionItemDataArray = null;
@@ -163,34 +191,8 @@ public class TravelScheduleAllocationActivity extends FragmentActivity {
 					R.layout.fragment_travel_schedule_allocation_dummy,
 					container, false);
 
-			MapView mapView = (MapView) rootView.findViewById(R.id.mapview);
-			mapView.onCreate(savedInstanceState);
-			mapView.onResume(); // without this, map showed but was empty
-
-			map = mapView.getMap();
-			map.getUiSettings().setMyLocationButtonEnabled(false);
-			map.setMyLocationEnabled(true);
-
-			try {
-				MapsInitializer.initialize(this.getActivity());
-			} catch (GooglePlayServicesNotAvailableException e) {
-				e.printStackTrace();
-			}
-
-			// Gets to GoogleMap from the MapView and does initialization
-			CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(
-					new LatLng(13.4770676, 144.7494423), 12);
-			map.animateCamera(cameraUpdate);
-
 			listView = (DragSortListView) rootView.findViewById(R.id.listview);
 			ArrayList<String> list = new ArrayList<String>(Arrays.asList(names));
-			
-			LatLng MELBOURNE = new LatLng(13.4770676, 144.7494423);
-			Marker melbourne = map.addMarker(new MarkerOptions()
-			                          .position(MELBOURNE)
-			                          .title("CAPRICCIOA Restaurant")
-			                          .snippet("바닷가재가 제일 맛있는 집"));
-			melbourne.showInfoWindow();
 
 			travelBookActionItemDataArray = new ArrayList<TravelBookHubItemData>();
 
