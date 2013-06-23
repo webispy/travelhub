@@ -28,9 +28,9 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/Theme.Example" >
         <activity
-            android:name="com.samsung.travelbook.MainActivity"
+            android:name="com.samsung.travelbook.TravelBookHubActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,7 +40,7 @@
         </activity>
         <activity
             android:name="com.samsung.travelbook.TravelScheduleAllocationActivity"
-            android:label="@string/title_activity_travel_schedule_allocation" >
+            android:label="날짜별 일정 배치" >
         </activity>
 
         <meta-data
@@ -49,6 +49,10 @@
 
         <activity
             android:name="com.samsung.travelbook.MapTest"
+            android:label="@string/title_activity_map_test" >
+        </activity>
+        <activity
+            android:name="com.samsung.travelbook.MainActivity"
             android:label="@string/title_activity_map_test" >
         </activity>
     </application>

@@ -16,7 +16,7 @@
         android:layout_height="fill_parent"
         android:background="#FFFFFF"
         android:padding="20dp"
-        android:src="@drawable/empty_action_items_02" />
+        android:src="@drawable/empty_action_items_03" />
 
     <com.mobeta.android.dslv.DragSortListView
         android:id="@+id/listview"

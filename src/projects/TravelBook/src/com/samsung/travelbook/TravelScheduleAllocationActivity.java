@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
 
+import org.w3c.dom.Document;
+
 import android.content.Context;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -29,6 +32,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
 import com.mobeta.android.dslv.DragSortController;
 import com.mobeta.android.dslv.DragSortListView;
 
@@ -58,6 +62,10 @@ public class TravelScheduleAllocationActivity extends FragmentActivity
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_travel_schedule_allocation);
+		
+		// ForGMapV2Direction Library
+		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+		StrictMode.setThreadPolicy(policy);
 
 		// Create the adapter that will return a fragment for each of the three
 		// primary sections of the app.
@@ -93,9 +101,33 @@ public class TravelScheduleAllocationActivity extends FragmentActivity
 				.position(MELBOURNE)
 				.title("CAPRICCIOA Restaurant")
 				.snippet("¹Ù´å°¡Àç°¡ Á¦ÀÏ ¸ÀÀÖ´Â Áý")
-				.icon(BitmapDescriptorFactory.fromResource(R.drawable.hot_place_marker_01)));
+				.icon(BitmapDescriptorFactory
+						.fromResource(R.drawable.hot_place_marker_01)));
+
+		LatLng hitonHotel = new LatLng(13.506321, 144.785702);
+		Marker mark_hitonHotel = map.addMarker(new MarkerOptions()
+				.position(hitonHotel)
+				.title("CAPRICCIOA Restaurant")
+				.snippet("ÈúÆ° È£ÅÚ")
+				.icon(BitmapDescriptorFactory
+						.fromResource(R.drawable.hot_place_marker_02)));
+
 		map.setInfoWindowAdapter(new PopupAdapter(getLayoutInflater()));
 		map.setOnInfoWindowClickListener(this);
+		
+		GMapV2Direction md = new GMapV2Direction();
+
+		Document doc = md.getDocument(MELBOURNE, hitonHotel,
+				GMapV2Direction.MODE_DRIVING);
+		ArrayList<LatLng> directionPoint = md.getDirection(doc);
+		PolylineOptions rectLine = new PolylineOptions().width(5).color(
+				0xFFFF8300);
+
+		for (int i = 0; i < directionPoint.size(); i++) {
+			rectLine.add(directionPoint.get(i));
+		}
+
+		map.addPolyline(rectLine);
 	}
 
 	@Override
@@ -209,8 +241,8 @@ public class TravelScheduleAllocationActivity extends FragmentActivity
 					travelBookActionItemDataArray);
 
 			TravelBookHubItemData item = new TravelBookHubItemData();
-//			travelBookActionItemDataArray.add(item);
-//			travelBookActionItemDataArray.add(item);
+			// travelBookActionItemDataArray.add(item);
+			// travelBookActionItemDataArray.add(item);
 			// travelBookActionItemDataArray.add(item);
 			// travelBookActionItemDataArray.add(item);
 			// travelBookActionItemDataArray.add(item);

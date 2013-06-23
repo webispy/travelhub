@@ -9,5 +9,6 @@
     <string name="title_activity_travel_schedule_allocation">TravelScheduleAllocationActivity</string>
     <string name="title_activity_map_test">MapTest</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_travel_book_hub">TravelBookHubActivity</string>
 
 </resources>
