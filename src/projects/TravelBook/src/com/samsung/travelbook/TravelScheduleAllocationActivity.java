@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
 
-import android.app.ActionBar;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -17,11 +16,13 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -31,7 +32,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.mobeta.android.dslv.DragSortController;
 import com.mobeta.android.dslv.DragSortListView;
 
-public class TravelScheduleAllocationActivity extends FragmentActivity {
+public class TravelScheduleAllocationActivity extends FragmentActivity
+		implements OnInfoWindowClickListener {
 
 	/**
 	 * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -47,7 +49,7 @@ public class TravelScheduleAllocationActivity extends FragmentActivity {
 	 * The {@link ViewPager} that will host the section contents.
 	 */
 	ViewPager mViewPager;
-	
+
 	final LatLng HAMBURG = new LatLng(13.4770676, 144.7494423);
 	final LatLng KIEL = new LatLng(13.4770676, 144.7494423);
 	private GoogleMap map;
@@ -65,7 +67,6 @@ public class TravelScheduleAllocationActivity extends FragmentActivity {
 		// Set up the ViewPager with the sections adapter.
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		mViewPager.setAdapter(mSectionsPagerAdapter);
-		
 
 		MapView mapView = (MapView) findViewById(R.id.mapview);
 		mapView.onCreate(savedInstanceState);
@@ -84,15 +85,17 @@ public class TravelScheduleAllocationActivity extends FragmentActivity {
 		// Gets to GoogleMap from the MapView and does initialization
 		CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(
 				new LatLng(13.4770676, 144.7494423), 12);
-		//map.animateCamera(cameraUpdate);
+		// map.animateCamera(cameraUpdate);
 		map.moveCamera(cameraUpdate);
-		
+
 		LatLng MELBOURNE = new LatLng(13.4770676, 144.7494423);
 		Marker melbourne = map.addMarker(new MarkerOptions()
-		                          .position(MELBOURNE)
-		                          .title("CAPRICCIOA Restaurant")
-		                          .snippet("바닷가재가 제일 맛있는 집"));
-		melbourne.showInfoWindow();
+				.position(MELBOURNE)
+				.title("CAPRICCIOA Restaurant")
+				.snippet("바닷가재가 제일 맛있는 집")
+				.icon(BitmapDescriptorFactory.fromResource(R.drawable.hot_place_marker_01)));
+		map.setInfoWindowAdapter(new PopupAdapter(getLayoutInflater()));
+		map.setOnInfoWindowClickListener(this);
 	}
 
 	@Override
@@ -100,6 +103,11 @@ public class TravelScheduleAllocationActivity extends FragmentActivity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.travel_schedule_allocation, menu);
 		return true;
+	}
+
+	@Override
+	public void onInfoWindowClick(Marker marker) {
+		Toast.makeText(this, marker.getTitle(), Toast.LENGTH_LONG).show();
 	}
 
 	/**
@@ -201,17 +209,17 @@ public class TravelScheduleAllocationActivity extends FragmentActivity {
 					travelBookActionItemDataArray);
 
 			TravelBookHubItemData item = new TravelBookHubItemData();
-			travelBookActionItemDataArray.add(item);
-			travelBookActionItemDataArray.add(item);
-			travelBookActionItemDataArray.add(item);
-			travelBookActionItemDataArray.add(item);
-			travelBookActionItemDataArray.add(item);
-			travelBookActionItemDataArray.add(item);
-			travelBookActionItemDataArray.add(item);
-			travelBookActionItemDataArray.add(item);
-			travelBookActionItemDataArray.add(item);
-			travelBookActionItemDataArray.add(item);
-			travelBookActionItemDataArray.add(item);
+//			travelBookActionItemDataArray.add(item);
+//			travelBookActionItemDataArray.add(item);
+			// travelBookActionItemDataArray.add(item);
+			// travelBookActionItemDataArray.add(item);
+			// travelBookActionItemDataArray.add(item);
+			// travelBookActionItemDataArray.add(item);
+			// travelBookActionItemDataArray.add(item);
+			// travelBookActionItemDataArray.add(item);
+			// travelBookActionItemDataArray.add(item);
+			// travelBookActionItemDataArray.add(item);
+			// travelBookActionItemDataArray.add(item);
 
 			listView.setAdapter(travelBookHubListAdapter);
 			listView.setDropListener(onDrop);

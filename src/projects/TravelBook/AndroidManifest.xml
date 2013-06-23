@@ -39,7 +39,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:theme="@android:style/Theme.NoTitleBar"
             android:name="com.samsung.travelbook.TravelScheduleAllocationActivity"
             android:label="@string/title_activity_travel_schedule_allocation" >
         </activity>

@@ -1,17 +1,22 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:dslv="http://schemas.android.com/apk/res/com.samsung.travelbook"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E2E2E2"
     android:orientation="vertical"
+    android:paddingLeft="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_vertical_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <!--
-         com.google.android.gms.maps.MapView  
-          android:id="@+id/mapview"
-          android:layout_width="match_parent"
-          android:layout_height="400dp"/
-    -->
+    <ImageView
+        android:id="@+id/action_items_empty"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#FFFFFF"
+        android:padding="20dp"
+        android:src="@drawable/empty_action_items_02" />
 
     <com.mobeta.android.dslv.DragSortListView
         android:id="@+id/listview"
@@ -32,4 +37,4 @@
         dslv:track_drag_sort="false"
         dslv:use_default_controller="true" />
 
-</LinearLayout>
+</FrameLayout>
