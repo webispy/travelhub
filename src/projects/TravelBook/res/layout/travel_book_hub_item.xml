@@ -1,73 +1,67 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="400dp"
+    android:layout_height="wrap_content"
+    android:background="#E2E2E2"
     android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#E2E2E2">
+    android:paddingTop="@dimen/activity_vertical_margin" >
 
     <ImageView
         android:id="@+id/item_main_img"
         android:layout_width="match_parent"
         android:layout_height="190dp	"
-        android:src="@drawable/sample_main_01"
         android:scaleType="centerCrop"
-        />
-    
+        android:src="@drawable/sample_main_01" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#E2E2E2"  
-        />
-    
-	<LinearLayout
-	    android:layout_width="match_parent"
-	    android:layout_height="60dp"
-	    android:orientation="horizontal"
-	    android:paddingBottom="9dp"
-	    android:paddingLeft="9dp"
-	    android:paddingRight="9dp"
-	    android:paddingTop="9dp"
-	    android:background="#FFFFFF">
-	    
-	    <ImageView
-	        android:id="@+id/item_people_img"
-	        android:layout_width="40dp"
-	        android:layout_height="40dp"
-	        android:src="@drawable/people_01"
-	        android:scaleType="centerCrop"
-	        />    
-	        
-	   	<LinearLayout
-		    android:layout_width="match_parent"
-		    android:layout_height="80dp"
-		    android:orientation="vertical"
-		    android:paddingBottom="1dp"
-		    android:paddingLeft="8dp"
-		    android:paddingRight="1dp"
-		    android:paddingTop="1dp"
-		    android:background="#FFFFFF">
-		    
-		        <TextView
-			        android:layout_width="match_parent"
-			        android:layout_height="wrap_content"
-			        android:text="발리 3박 4일 알뜰 여행기"
-			        android:textColor="#666666"
-			        android:textStyle="bold"
-			        android:textSize="14dp"
-			        />
-		    
-		        <TextView
-			        android:layout_width="match_parent"
-			        android:layout_height="wrap_content"
-			        android:text="발리 3박 4일 알뜰 여행기"
-			        android:textColor="#BFBFBF"
-			        android:textSize="12dp"
-			        />
-		        
-		</LinearLayout>
-	    
-	</LinearLayout>
-        
+        android:background="#E2E2E2" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_vertical_margin"
+        android:paddingRight="@dimen/activity_vertical_margin"
+        android:paddingTop="@dimen/activity_vertical_margin" >
+
+        <ImageView
+            android:id="@+id/item_people_img"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/people_01" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:orientation="vertical"
+            android:paddingBottom="1dp"
+            android:paddingLeft="@dimen/activity_vertical_margin"
+            android:paddingRight="1dp"
+            android:paddingTop="1dp" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="발리 3박 4일 알뜰 여행기"
+                android:textColor="#666666"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="세계적으로 가장 고급스러운 휴양지로 손꼽히는 지역에 있는 ..."
+                android:textColor="#BFBFBF"
+                android:textSize="12dp" />
+        </LinearLayout>
+    </LinearLayout>
+
 </LinearLayout>

@@ -6,6 +6,7 @@ import java.util.Locale;
 
 import org.w3c.dom.Document;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -19,6 +20,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
@@ -62,6 +64,14 @@ public class TravelScheduleAllocationActivity extends FragmentActivity
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_travel_schedule_allocation);
+		
+		ActionBar actionBar = getActionBar();
+		actionBar.setDisplayShowCustomEnabled(true);
+		actionBar.setCustomView(R.layout.action_bar_title);
+		((TextView) findViewById(R.id.action_bar_title))
+		.setText("날짜별 일정 배치");
+		((TextView) findViewById(R.id.action_bar_subtitle))
+		.setText("이번 여행의 액션 아이템을 일정별로 배치");
 		
 		// ForGMapV2Direction Library
 		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -120,7 +130,7 @@ public class TravelScheduleAllocationActivity extends FragmentActivity
 		Document doc = md.getDocument(MELBOURNE, hitonHotel,
 				GMapV2Direction.MODE_DRIVING);
 		ArrayList<LatLng> directionPoint = md.getDirection(doc);
-		PolylineOptions rectLine = new PolylineOptions().width(5).color(
+		PolylineOptions rectLine = new PolylineOptions().width(8).color(
 				0xFFFF8300);
 
 		for (int i = 0; i < directionPoint.size(); i++) {

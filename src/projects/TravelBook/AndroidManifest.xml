@@ -31,7 +31,7 @@
         android:theme="@style/Theme.Example" >
         <activity
             android:name="com.samsung.travelbook.TravelBookHubActivity"
-            android:label="Travel Book Hub" >
+            android:label="Travel Book 허브" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -54,6 +54,14 @@
         <activity
             android:name="com.samsung.travelbook.MainActivity"
             android:label="@string/title_activity_map_test" >
+        </activity>
+        <activity
+            android:name="com.samsung.travelbook.NewTravelBookActivity"
+            android:label="Travel Book 만들기" >
+        </activity>
+        <activity
+            android:name="com.samsung.travelbook.ActionItemsAddActivity"
+            android:label="@string/title_activity_action_items_add" >
         </activity>
     </application>
 
