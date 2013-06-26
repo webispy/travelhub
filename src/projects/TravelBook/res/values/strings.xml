@@ -12,5 +12,6 @@
     <string name="title_activity_travel_book_hub">TravelBookHubActivity</string>
     <string name="title_activity_new_travel_book">NewTravelBookActivity</string>
     <string name="title_activity_action_items_add">ActionItemsAddActivity</string>
+    <string name="title_activity_search_travel_item">SearchTravelItemActivity</string>
 
 </resources>

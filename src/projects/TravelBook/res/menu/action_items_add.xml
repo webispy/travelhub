@@ -1,6 +1,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
+        android:id="@+id/add_travel_item"
+        android:icon="@drawable/glass"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom"
+        android:title="Create Travel Book"/>
+
+    <item
         android:id="@+id/move_to_allocate_schedule"
         android:icon="@drawable/arrow_right"
         android:orderInCategory="100"

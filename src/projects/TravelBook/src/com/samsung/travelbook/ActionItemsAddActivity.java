@@ -36,6 +36,12 @@ public class ActionItemsAddActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		Log.i("Jun", "value " + item.getItemId());
 		switch (item.getItemId()) {
+		case R.id.add_travel_item: {
+			Intent intent = new Intent(getApplicationContext(),
+					SearchTravelItemActivity.class);
+			startActivity(intent);
+			break;
+		}
 		case R.id.move_to_allocate_schedule: {
 			Intent intent = new Intent(getApplicationContext(),
 					TravelScheduleAllocationActivity.class);

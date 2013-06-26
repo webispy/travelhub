@@ -3,9 +3,9 @@
     android:layout_height="wrap_content"
     android:background="#E2E2E2"
     android:orientation="vertical"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin" >
+    android:paddingLeft="@dimen/hub_activity_horizontal_margin"
+    android:paddingRight="@dimen/hub_activity_horizontal_margin"
+    android:paddingTop="@dimen/hub_activity_horizontal_margin" >
 
     <ImageView
         android:id="@+id/item_main_img"

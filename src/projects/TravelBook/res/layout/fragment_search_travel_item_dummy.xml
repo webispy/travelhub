@@ -1,0 +1,18 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/hub_activity_vertical_margin"
+    android:paddingLeft="@dimen/hub_activity_vertical_margin"
+    android:paddingRight="@dimen/hub_activity_vertical_margin"
+    android:paddingTop="@dimen/hub_activity_vertical_margin"
+    tools:context=".SearchTravelItemActivity$DummySectionFragment" >
+
+    <ListView
+        android:id="@+id/travel_item_list_by_search"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+         
+        />
+
+</RelativeLayout>

@@ -63,6 +63,10 @@
             android:name="com.samsung.travelbook.ActionItemsAddActivity"
             android:label="@string/title_activity_action_items_add" >
         </activity>
+        <activity
+            android:name="com.samsung.travelbook.SearchTravelItemActivity"
+            android:label="@string/title_activity_search_travel_item" >
+        </activity>
     </application>
 
 </manifest>

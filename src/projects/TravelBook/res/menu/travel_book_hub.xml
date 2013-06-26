@@ -2,7 +2,7 @@
 
     <item
         android:id="@+id/action_create"
-        android:icon="@drawable/wallet"
+        android:icon="@drawable/agenda"
         android:orderInCategory="100"
         android:showAsAction="ifRoom"
         android:title="Create Travel Book"/>

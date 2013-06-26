@@ -3,11 +3,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/hub_activity_horizontal_margin"
+    android:paddingLeft="@dimen/hub_activity_horizontal_margin"
+    android:paddingRight="@dimen/hub_activity_horizontal_margin"
+    android:paddingTop="@dimen/hub_activity_horizontal_margin"
     tools:context=".ActionItemsAddActivity" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:text="목적 도시"
+        android:textColor="#AAAAAA"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:text="" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -79,26 +93,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:text="장소검색"
-        android:textColor="#AAAAAA"
-        android:textSize="20dp"
-        android:textStyle="bold" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="예: 힐튼호텔, 하네다공항, 에펠탑, 금문교, .." />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="8dp"
-        android:text="" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:text="액션 아이템"
+        android:text="여행 아이템"
         android:textColor="#AAAAAA"
         android:textSize="20dp"
         android:textStyle="bold" />
@@ -216,7 +211,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/airport_01" />
+                    android:src="@drawable/spot_02" />
 
                 <TextView
                     android:id="@+id/item02"
@@ -229,6 +224,36 @@
                     android:paddingTop="56dp"
                     android:scrollHorizontally="false"
                     android:text="괌 정부 종합 청사"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14dp" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:text="" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/spot_01" />
+
+                <TextView
+                    android:id="@+id/item02"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:paddingLeft="@dimen/activity_vertical_margin"
+                    android:paddingRight="@dimen/activity_vertical_margin"
+                    android:paddingTop="56dp"
+                    android:scrollHorizontally="false"
+                    android:text="사랑의 절벽"
                     android:textColor="#FFFFFF"
                     android:textSize="14dp" />
             </FrameLayout>
