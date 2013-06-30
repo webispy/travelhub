@@ -51,14 +51,14 @@
                 android:layout_height="wrap_content"
                 android:text="발리 3박 4일 알뜰 여행기"
                 android:textColor="#666666"
-                android:textSize="14dp"
+                android:textSize="16dp"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
-                android:text="세계적으로 가장 고급스러운 휴양지로 손꼽히는 지역에 있는 ..."
+                android:text="세계적으로 가장 고급스러운 휴양지로 손꼽히는 지역에 .."
                 android:textColor="#BFBFBF"
                 android:textSize="12dp" />
         </LinearLayout>
