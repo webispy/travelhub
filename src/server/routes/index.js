@@ -39,6 +39,12 @@ exports.db = function(req, res, next){
 
 
 exports.user_list = function(req, res, next){
+	if (conn.state == 'disconnected') {
+		console.log("no mysql connection");
+		res.json({result: 'failure'});
+		return;
+	}
+
 	conn.query('SELECT * FROM User', function(err, rows) {
 		console.log(err);
 		console.log(rows);
@@ -52,6 +58,12 @@ exports.user_login = function(req, res, next){
 		+ "password = '" + req.body.password + "'";
 
 	console.log(query);
+
+	if (conn.state == 'disconnected') {
+		console.log("no mysql connection");
+		res.json({result: 'failure'});
+		return;
+	}
 
 	conn.query(query, function(err, rows) {
 		if (err) {
@@ -76,6 +88,12 @@ exports.user_add = function(req, res, next){
 
 	console.log(query);
 
+	if (conn.state == 'disconnected') {
+		console.log("no mysql connection");
+		res.json({result: 'failure'});
+		return;
+	}
+
 	conn.query(query, function(err, rows) {
 		if (err) {
 			console.log(err);
@@ -92,6 +110,12 @@ exports.user_add = function(req, res, next){
 };
 
 exports.user_del = function(req, res, next){
+	if (conn.state == 'disconnected') {
+		console.log("no mysql connection");
+		res.json({result: 'failure'});
+		return;
+	}
+
 	if (req.params.id) {
 		conn.query('DELETE FROM User WHERE id=' + req.params.id, function(err, rows) {
 			if (err) {
@@ -110,6 +134,12 @@ exports.user_del = function(req, res, next){
 };
 
 exports.user_find = function(req, res, next){
+	if (conn.state == 'disconnected') {
+		console.log("no mysql connection");
+		res.json({result: 'failure'});
+		return;
+	}
+
 	if (req.params.id) {
 		conn.query('SELECT * FROM User WHERE email=' + req.params.email, function(err, rows) {
 			console.log(rows);
