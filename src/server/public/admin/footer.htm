@@ -1,0 +1,44 @@
+<html>
+	<head>
+	</head>
+	<body>
+		API List
+		<table border=1 cellspacing=0 cellpadding=5>
+			<tr>
+				<th>API</th>
+				<th>Method</th>
+				<th>Params</th>
+				<th>Response</th>
+				<th>Comment</th>
+			</tr>
+			<tr>
+				<td>/user/login</td>
+				<td>POST</td>
+				<td>email, password</td>
+				<td>{result: "success" / "failure", data: UserObject}</td>
+				<td>Login - 단순히 email/password 체크해서 정보 넘겨줌</td>
+			</tr>
+			<tr>
+				<td>/user/add</td>
+				<td>POST</td>
+				<td>nickname, email, password</td>
+				<td>{result: "success" / "failure", data: MySQLResultObject}</td>
+				<td>User Add</td>
+			</tr>
+			<tr>
+				<td>/user/del/{id}</td>
+				<td>GET</td>
+				<td>id</td>
+				<td>{result: "success" / "failure", data: MySQLResultObject}</td>
+				<td>User Delete</td>
+			</tr>
+			<tr>
+				<td>/user/list</td>
+				<td>GET</td>
+				<td></td>
+				<td>User object list</td>
+				<td>전체 사용자 리스트</td>
+			</tr>
+		</table>
+	</body>
+</html>

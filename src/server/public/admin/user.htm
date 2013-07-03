@@ -1,0 +1,124 @@
+<html>
+	<head>
+		<script src="/libs/jquery-1.10.1.min.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			function update_list() {
+				console.log('get users');
+				$.getJSON('/user/list', function(data) {
+
+					var items = [];
+
+					console.log(data);
+
+					items.push('<table border=1 cellspacing=0 cellpadding=5>');
+					items.push('<tr><th>id</th><th>nickname</th><th>email</th><th>password</th><th>date_reg</th><th>date_last</th><th>fk_userimage</th><th>Delete</th></tr>');
+
+					$.each(data, function(key, val) {
+						console.log(val);
+						items.push('<tr><td>' + val.id + '</td><td>'
+							+ val.nickname + '</td><td>'
+							+ val.email + '</td><td>'
+							+ val.password + '</td><td>'
+							+ val.date_reg + '</td><td>'
+							+ val.date_last + '</td><td>'
+							+ val.fk_userimage + '</td><td>'
+							+ "<a href='#' onclick='javascript:del(" + val.id + ")'>Del</a></td></tr>");
+					});
+
+					items.push('</table>');
+					$('#list').html(items.join(''));
+				});
+			}
+
+			function del(user_id) {
+				$.ajax({
+					type: 'GET',
+					cache: false,
+					url: '/user/del/' + user_id,
+					success: resp
+				});
+			}
+
+			function resp(msg) {
+				console.log('Response');
+				console.log(msg);
+				if (msg.result == 'success')
+					alert('Success');
+				else
+					alert('Fail');
+			}
+
+			$(document).ready(function(){
+					update_list();
+
+					$('#form_login').submit(function(e){
+						e.preventDefault();
+						console.log('login');
+						$.ajax({
+							type: 'POST',
+							cache: false,
+							url: '/user/login',
+							data: $(this).serialize(),
+							success: resp
+						});
+					});
+
+					$('#form_add').submit(function(e){
+						e.preventDefault();
+						console.log('add');
+						$.ajax({
+							type: 'POST',
+							cache: false,
+							url: '/user/add',
+							data: $(this).serialize(),
+							success: resp
+						});
+					});
+			});
+		</script>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<td valign=top>
+					User email/password check
+					<form method="post" accept-charset="utf-8" id='form_login'>
+						<table border=1 cellspacing=0 cellpadding=5>
+							<tr>
+								<th>email</th><td><input type="text" name="email"/></td>
+							</tr>
+							<tr>
+								<th>password</th><td><input type="password" name="password"/></td>
+							</tr>
+							<tr>
+								<td colspan=2 align=center><input type="submit" value="Login"/></td>
+							</tr>
+						</table>
+					</form>
+				</td>
+				<td>
+					User Add
+					<form method="post" accept-charset="utf-8" id='form_add'>
+						<table border=1 cellspacing=0 cellpadding=5>
+							<tr>
+								<th>email</th><td><input type="text" name="email"/></td>
+							</tr>
+							<tr>
+								<th>nickname</th><td><input type="text" name="nickname"/></td>
+							</tr>
+							<tr>
+								<th>password</th><td><input type="password" name="password"/></td>
+							</tr>
+							<tr>
+								<td colspan=2 align=center><input type="submit" value="Register"/></td>
+							</tr>
+						</table>
+					</form>
+				</td>
+			</tr>
+		</table>
+		<hr size=1/>
+		User List <input type=button onclick="javascript:update_list();" value="Update" />
+		<div id="list"></div>
+	</body>
+</html>
