@@ -8,6 +8,7 @@ var conn = mysql.createConnection({
 	database: 'travel'
 });
 
+conn.connect();
 
 var dirBase = "public/data/";
 
